@@ -23,6 +23,14 @@ def run_download(job_id, url, format_choice, format_id):
         'no_warnings': False,
         'outtmpl': out_template,
         'socket_timeout': 300,
+        'http_headers': {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        },
+        'extractor_args': {
+            'youtube': {
+                'lang': ['en'],
+            }
+        }
     }
 
     if format_choice == "audio":
@@ -96,6 +104,14 @@ def get_info():
             'no_warnings': False,
             'socket_timeout': 60,
             'skip_download': True,
+            'http_headers': {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            },
+            'extractor_args': {
+                'youtube': {
+                    'lang': ['en'],
+                }
+            }
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
